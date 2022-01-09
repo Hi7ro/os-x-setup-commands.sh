@@ -12,6 +12,7 @@ brew install neofetch
 brew install speedtest-cli
 brew install vcprompt
 # update bash_profile
+brew install --cask lulu #better firewall
 brew cask install spectacle
 brew cask install alfred
 # set CMD+space to launch alfred
