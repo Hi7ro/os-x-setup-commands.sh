@@ -1,6 +1,5 @@
 HOST_NAME=deusXdev
 
-neofetch
 source ~/.nvm/nvm.sh
 nvm use stable
 shopt -s autocd
@@ -38,7 +37,7 @@ PROMPT_COMMAND=print_before_the_prompt
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 PS1="$EMOJI >"
 
-fortune | cowsay -f tux
+neofetch
 
 function mkcd()
 {
