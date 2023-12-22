@@ -9,7 +9,7 @@ brew install neofetch
 brew install speedtest-cli
 brew install vcprompt
 # update bash_profile
-brew install --cask spectacle
+brew install --cask rectangle
 brew install --cask alfred
 # set CMD+space to launch alfred
 brew install --cask firefox
