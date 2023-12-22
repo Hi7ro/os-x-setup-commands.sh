@@ -4,7 +4,7 @@ brew update
 brew install --cask iterm2
 # update iterm2 settings -> colors, keep directory open new shell, keyboard shortcuts
 brew install bash
-brew install htop
+brew install btop
 brew install neofetch 
 brew install speedtest-cli
 brew install vcprompt
