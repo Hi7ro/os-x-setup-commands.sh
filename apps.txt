@@ -1,0 +1,14 @@
+discord
+slack
+vlc
+gimp
+visual-studio-code
+intellij-idea-ce
+sublime-text
+istat
+spotify
+microsoft-teams
+tor-browser
+krita
+balenaetcher
+whatsapp
