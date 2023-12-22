@@ -3,8 +3,7 @@ xcode-select --install
 brew update
 brew install --cask iterm2
 # update iterm2 settings -> colors, keep directory open new shell, keyboard shortcuts
-brew install bash # latest version of bash
-# set brew bash as default shell
+brew install bash
 brew install htop
 brew install neofetch 
 brew install speedtest-cli
