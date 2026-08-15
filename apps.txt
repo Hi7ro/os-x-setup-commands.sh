@@ -1,14 +1,15 @@
 discord
-slack
 vlc
-gimp
-visual-studio-code
-intellij-idea-ce
 sublime-text
+balenaEtcher
 istat
-spotify
-microsoft-teams
-tor-browser
-krita
-balenaetcher
 whatsapp
+signal
+telegram-desktop
+tor-browser
+postman
+orbstack
+
+visual-studio-code
+// intellij-idea-ce #maybe
+// krita
