@@ -1,0 +1,6 @@
+ffmpeg
+wget
+tldr
+curl
+fs
+bat
