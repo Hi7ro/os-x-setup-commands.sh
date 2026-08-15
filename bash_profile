@@ -1,45 +1,89 @@
-HOST_NAME=deusXdev
+# =========================
+# OH MY ZSH
+# =========================
 
-source ~/.nvm/nvm.sh
-nvm use stable
-shopt -s autocd
-shopt -s histappend
+export ZSH="$HOME/.oh-my-zsh"
 
-export PATH=$PATH:$HOME/bin
+#ZSH_THEME="robbyrussell"
 
-export HISTSIZE=5000
-export HISTFILESIZE=10000
+plugins=(
+git
+sudo
+docker
+npm
+node
+z
+)
 
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+source $ZSH/oh-my-zsh.sh
 
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+# =========================
+# BASIC CONFIG
+# =========================
 
-txtred='\e[0;31m' # Red
-txtgrn='\e[0;32m' # Green
-bldgrn='\e[1;32m' # Bold Green
-bldpur='\e[1;35m' # Bold Purple
-txtrst='\e[0m'    # Text Reset
+HOST_NAME="xv7ro"
 
-emojis=("👾" "☯️" "🎲" "🦂" "🐉" "⚛️" "🫥")
+# =========================
+# PROMT
+# =========================
 
-EMOJI=${emojis[$RANDOM % ${#emojis[@]} ]}
+emojis=("👾" "🌎️" "🎲" "🦂" "🐉" "🫥" "🤖")
+EMOJI=${emojis[$RANDOM % ${#emojis[@]}]}
 
-print_before_the_prompt () {
-    dir=$PWD
-    home=$HOME
-    dir=${dir/"$HOME"/"~"}
-    printf "\n $txtred%s: $bldpur%s $txtgrn%s\n$txtrst" "$HOST_NAME" "$dir" "$(vcprompt)"
+autoload -Uz vcs_info
+precmd() {
+  vcs_info
 }
 
-PROMPT_COMMAND=print_before_the_prompt
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-PS1="$EMOJI >"
+zstyle ':vcs_info:git:*' formats '(%b)'
+zstyle ':vcs_info:*' enable git
 
-neofetch
+PROMPT='
+%F{red}${HOST_NAME}:%f %F{magenta}%~%f %F{green}${vcs_info_msg_0_}%f
+${EMOJI} > '
 
-function mkcd()
-{
-	mkdir $1 && cd $1
-}
+# =========================
+# NVM
+# =========================
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
+
+# =========================
+# SDKMAN
+# =========================
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# =========================
+# ANGULAR COMPLETION
+# =========================
+
+if command -v ng >/dev/null 2>&1; then
+  source <(ng completion script)
+fi
+
+
+# =========================
+# EX SOURCES
+# =========================
+source ~/.zsh_exports
+source ~/.zsh_aliases
+
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_complet$
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
